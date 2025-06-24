@@ -1,0 +1,12 @@
+{
+    "projects": [
+        {
+            "title": "Title of Project 1",
+            "slug": "project1",
+            "date": "may 15, 2025",
+            "description": "description of the project",
+            "technologies": ["tag1", "tag2", "tag3"],
+            "image": "project1/test.png"
+        }
+    ]
+}

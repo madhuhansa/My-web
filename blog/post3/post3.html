@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to Machine Learning</title>
+    <link rel="stylesheet" href="../../css/blog.css">
+    <script src="../../js/post-loader.js"></script>
+</head>
+<body>
+    <nav id="navbar">
+        <ul>
+            <li><a href="../blog_page.html">← Back to Blog</a></li>
+        </ul>
+    </nav>
+
+    <main class="post-container">
+        <div class="post-meta">
+            <span class="post-date"></span>
+            <span class="post-author"></span>
+            <span class="read-time"></span>
+        </div>
+
+        <h1 class="post-title"></h1>
+
+        <img src="img1.webp" alt="Machine Learning Concepts" class="post-image">
+
+        <div class="post-content">
+            
+            <p>Before you can analyze or model your data, you need to clean it. 
+                Dirty data can lead to wrong insights and poor predictions. 
+                In this post, we’ll walk through the basics of data cleaning and what to look out for <br>
+            
+            </p>
+
+            <div class="thispost-contents">
+                <!-- 1. Weird Values -->
+                <div class="paragraph-section">
+                    <h3>1. Identifying Weird Values</h3>
+                    <p>Look for values that do not make logical sense in their columns.  </p>
+                    
+                    <div class="code-section">
+                        <pre class="code"><code># Find unexpected values in a numeric column
+df[df['age'] > 100]  # Ages over 100
+df[df['price'] < 0]   # Negative prices
+
+# Check categorical columns for weird entries
+df['category'].value_counts()</code></pre>
+                    </div>
+                    
+                    <p class="markdown-paragraph">Common issues include placeholder values, test entries, or corrupted data. <br>
+                        You can use smart coding techniqes without spending too much time on manual inspection.<br>
+                        Check for categorical values that should not exist, like "N/A", "unknown", or "test".
+                    </p>
+                    </p>
+                </div>
+
+                <!-- 2. Whitespace -->
+                <div class="paragraph-section">
+                    <h3>2. Handling Whitespace</h3>
+                    <p>Invisible whitespace can break string matching: (e.g., " Apple" instead of "Apple")</p>
+                    
+                    <div class="code-section">
+                        <pre class="code"><code>#look for repeting objects because of whitespace
+df['colname'].unique()  # Check unique values
+        
+# Strip whitespace from string columns
+df['text_column'] = df['text_column'].str.strip()
+</code></pre>
+                    </div>
+                     <p class="markdown-paragraph">Whitespace can be tricky, especially in string columns.
+                        It can make new values appear different from existing ones, even if they look the same visually.
+                        that is why you should always check unique for each object column.
+                           
+                    </p>
+                </div>
+
+                <!-- 3. Data Types -->
+                <div class="paragraph-section">
+                    <h3>3. Fixing Data Type Mismatches</h3>
+                    <p>Ensure each column has the correct data type:</p>
+                    
+                    <div class="code-section">
+                        <pre class="code"><code># Check current dtypes
+df.dtypes
+
+# Convert types
+df['date_column'] = pd.to_datetime(df['date_column'])
+df['numeric_str'] = pd.to_numeric(df['numeric_str'], errors='coerce')
+
+# Handle currency columns
+df['price'] = df['price'].replace('[\$,]', '', regex=True).astype(float)</code></pre>
+                    </div>
+                    <p class="markdown-paragraph">
+                        Data types are crucial for analysis. 
+                        If a column is supposed to be numeric but is stored as a string, it can lead to errors in calculations.
+                        Always check the data types of your columns and convert them as necessary. also whitespace can change the data type.
+                    
+                    </p>
+                </div>
+
+                <!-- 4. Units mismatches -->
+                <div class="paragraph-section">
+                    <h3>4. Fixing Units mismatches</h3>
+                    <p>Ensure each column has the correct data type:</p>
+                    
+                    <div class="code-section">
+                        <pre class="code"><code># Check current dtypes
+df.dtypes
+
+# Standardize units
+df['Height_m'] = df['Height_cm'] / 100
+</code></pre>
+                    </div>
+                    <p class="markdown-paragraph">
+                        Units can vary widely in datasets, especially in scientific or engineering contexts.
+                        Always standardize units to a common format before analysis.
+                        For example, if you have height in both centimeters and meters, convert everything to meters.
+                    </p>
+                </div>
+
+                <!-- 5. Fix typos  -->
+                <div class="paragraph-section">
+                    <h3>5. Fixing Typos</h3>
+                    <p>Typos can lead to duplicate entries or misclassifications:</p>
+                    
+                    <div class="code-section">
+                        <pre class="code"><code># Fix typos in categorical columns
+df['Category'] = df['Category'].replace({'Elecronics': 'Electronics', 'electonics': 'Electronics'})</code></pre>
+                    </div>
+                    <p class="markdown-paragraph">
+                        Typos can create duplicates or misclassifications in your data.
+                        Always check for common misspellings and correct them.
+                        You can use string matching techniques to identify and fix typos in categorical columns.
+                    </p>
+
+            </div>
+
+            <!-- 5. missing values  -->
+            <div class="paragraph-section">
+                <h3>6. Dealing with Missing Values</h3>
+
+                <p>missing values removieng is bit time consuming step in data cleaning and most important step. 
+                    because you should be able to understand unique stratergies to remove missing values for each data set. 
+                </p>
+
+                <a href="../post4/post4.html">Read how to Deal with missing values</a>
+
+                
+            </div>
+
+            <!-- 5. Outliers  -->
+            <div class="paragraph-section">
+                <h3>7. Dealing with Outliers</h3>
+                <p>Outliers can skew your analysis and predictions. 
+                    You can use statistical methods to identify and handle them.
+
+                </p>
+                <a href="">Read how to Deal with Outliers</a>
+            </div>
+
+            <p class="workflow-conclusion">Always document your cleaning steps - future you (or teammates) will need to understand what transformations were applied to the raw data.</p>
+        </div>
+    </main>
+</body>
+</html>

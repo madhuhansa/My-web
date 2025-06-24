@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to Machine Learning</title>
+    <link rel="stylesheet" href="../../css/blog.css">
+    <script src="../../js/post-loader.js"></script>
+</head>
+<body>
+    <nav id="navbar">
+        <ul>
+            <li><a href="../blog_page.html">← Back to Blog</a></li>
+        </ul>
+    </nav>
+
+    <main class="post-container">
+        <div class="post-meta">
+            <span class="post-date"></span>
+            <span class="post-author"></span>
+            <span class="read-time"></span>
+        </div>
+
+        <h1 class="post-title"></h1>
+
+        <img src="img1.jpeg" alt="Machine Learning Concepts" class="post-image">
+
+        <!-- Dealing with Outliers  -->
+        <div class="paragraph-section">
+            <h3>Dealing with Outliers</h3>
+            <p>Outliers are values that are far outside the normal range of your data. 
+                They can affect your visualizations, averages, and model accuracy. 
+                In this section, we’ll learn how to detect and remove extreme outliers without deleting useful data.
+            </p>
+
+            <h4>1. Detect Outliers and Check Shape</h4>
+            <div class="code-section">
+                <pre class="code"><code># Use describe() to get min, max
+df.describe()
+
+# Use IQR method to detect outliers
+Q1 = df['col'].quantile(0.25)
+Q3 = df['col'].quantile(0.75)
+IQR = Q3 - Q1
+outliers = df[(df['col'] < Q1 - 1.5 * IQR) | (df['col'] > Q3 + 1.5 * IQR)]
+print(outliers.shape)</code></pre>
+            </div>
+            <p class="markdown-paragraph">
+                Outliers are often detected using the IQR method (Interquartile Range).
+                You can list them and see how many are present in your dataset.
+            </p>
+
+            <h4>2. Use Boxplots for Visual Clarity</h4>
+            <div class="code-section">
+                <pre class="code"><code>import seaborn as sns
+import matplotlib.pyplot as plt
+
+sns.boxplot(data=df['col'])
+plt.show()</code></pre>
+            </div>
+            <p class="markdown-paragraph">
+                Boxplots give a visual way to identify outliers.
+                Any dots far outside the box are likely outliers.
+            </p>
+
+            <h4>3. Understand Extreme Outliers</h4>
+            <p class="markdown-paragraph">
+                Some outliers are close to the average and may be valid. 
+                But extreme outliers — those very far from the mean or median — should be reviewed carefully.
+                For example, a salary of 10 million in a dataset of 30k–100k salaries is likely an error or rare case.
+            </p>
+
+            <h4>4. Manually Drop Extreme Outliers</h4>
+            <div class="code-section">
+                <pre class="code"><code># Drop extreme outliers only
+df = df[(df['col'] < upper_limit) & (df['col'] > lower_limit)]</code></pre>
+            </div>
+            <p class="markdown-paragraph">
+                Don’t drop too many values. Only remove the ones that are clearly wrong or irrelevant.
+                Use your judgment — don’t remove valuable edge cases unless they are errors.
+            </p>
+
+            <h4>5. Apply Business Rules</h4>
+            <p class="markdown-paragraph">
+                Always consider business logic. 
+                For example, if you are analyzing human ages, you know no one should be over 120.
+                If a price value is too high to be real, apply domain knowledge to set limits.
+            </p>
+
+            <p >
+                <strong>outliers is not just a technical task</strong>  — it requires understanding the context and deciding which values make sense to keep.
+                Done correctly, this step can greatly improve your data quality and model performance.
+            </p>
+        </div>
+
+
+    </main>
+</body>
+</html>

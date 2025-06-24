@@ -1,0 +1,49 @@
+{
+    "posts": [
+        {
+            "title": "Data Science Workflow: Steps",
+            "slug": "post1",
+            "date": "May 5, 2025",
+            "author": "Yahan madhuhansa",
+            "excerpt": "Building an effective machine learning system requires a structured approach. Here's my breakdown of the key stages",
+            "readTime": 1,
+            "tags": ["Data_Science", "beginner"]
+        },
+        {
+            "title": "How to understand the data set",
+            "slug": "post2",
+            "date": "May 5, 2025",
+            "author": "Yahan madhuhansa",
+            "excerpt": "Before diving into any data analysis, it's crucial to thoroughly understand your dataset... ",
+            "readTime": 2,
+            "tags": ["Data_Science", "beginner"]
+        },
+        {
+            "title": "The Ultimate Guide to Data Cleaning",
+            "slug": "post3",
+            "date": "May 5, 2025",
+            "author": "Yahan madhuhansa",
+            "excerpt": "Before you can analyze or model your data, you need to clean it. Dirty data can lead to wrong insights and poor predictions... ",
+            "readTime": 3,
+            "tags": ["Data_Science", "Data_cleaning"]
+        },
+        {
+            "title": "The Ultimate Guide to Handle missing values",
+            "slug": "post4",
+            "date": "May 5, 2025",
+            "author": "Yahan madhuhansa",
+            "excerpt": "Missing values are one of the most common and tricky problems in real-world datasets. If not handled properly, ... ",
+            "readTime": 3,
+            "tags": ["Data_Science", "Data_cleaning", "Missing_values"]
+        },
+        {
+            "title": "The Ultimate Guide to Handle Outliers",
+            "slug": "post5",
+            "date": "May 5, 2025",
+            "author": "Yahan madhuhansa",
+            "excerpt": "Outliers are values that are far outside the normal range of your data. They can affect your visualizations,...",
+            "readTime": 2,
+            "tags": ["Data_Science", "Data_cleaning", "Outliers"]
+        }
+    ]
+}

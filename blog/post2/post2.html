@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to Machine Learning</title>
+    <link rel="stylesheet" href="../../css/blog.css">
+    <script src="../../js/post-loader.js"></script>
+</head>
+<body>
+    <nav id="navbar">
+        <ul>
+            <li><a href="../blog_page.html">← Back to Blog</a></li>
+        </ul>
+    </nav>
+
+    <main class="post-container">
+        <div class="post-meta">
+            <span class="post-date"></span>
+            <span class="post-author"></span>
+            <span class="read-time"></span>
+        </div>
+
+        <h1 class="post-title"></h1>
+
+        <img src="img1.png" alt="Machine Learning Concepts" class="post-image">
+
+        <div class="post-content">
+            <p>Before diving into any data analysis, it's crucial to thoroughly understand your dataset. This guide walks through the essential checks you should perform when first examining a new dataset.</p>
+
+            <div class="thispost-contents">
+                <!-- 1. Shape -->
+                <div class="paragraph-section">
+                    <h3>1. Dataset Shape</h3>
+                    <p>The shape tells you how many rows (observations) and columns (features) your dataset contains.</p>
+                    <div class="code-section"> 
+                        <pre class="code">df.shape</pre>
+                    </div>
+                    <p class="markdown-paragraph">Always Remember to view the shape to understand how shape change. 
+                        this helps you to make sure you do not lose important data by any accident 
+                        when you do data cleaning, outliers removiers or feature engineering</p>
+                </div>
+
+                <!-- 2. Columns -->
+                <div class="paragraph-section">
+                    <h3>2. Column Information</h3>
+                    <p>Examine column names, data types, and basic statistics:</p>
+                    
+                    <div class="code-section">
+                        <pre class="code"># View all the columns
+df.columns 
+
+# View column names and data types
+df.info()
+
+# Get statistical summary
+df.describe()
+
+# For categorical columns
+df.describe(include='all')</pre>
+                    </div>
+                    <p class="markdown-paragraph">
+                        <strong>Numerical columns</strong>: Check min, max, mean values <br>
+                        <strong>Categorical columns</strong>: Examine unique values <br>
+                        <strong>Datetime columns</strong>: Verify date ranges
+
+                    </p>
+                </div>
+
+                <!-- 3. Missing Values -->
+                <div class="paragraph-section">
+                    <h3>3. Missing Values</h3>
+                    <p>Identify columns with null values and decide how to handle them in data Cleaning Step</p>
+                    
+                    <div class="code-section">
+                        <pre class="code">df.isnull().sum()</pre>
+                    </div>
+                    
+                </div>
+
+                <!-- 4. Duplicates -->
+                <div class="paragraph-section">
+                    <h3>4. Duplicate Records</h3>
+                    <p>Check for and handle duplicate rows:</p>
+                    
+                    <div class="code-section">
+                        <pre class="code"># Check for duplicates
+df.duplicated().sum()  
+
+# Remove duplicates
+df = df.drop_duplicates()
+
+# Check for duplicates in specific columns
+df['column_name'].duplicated().sum()</pre>
+                    </div>
+                    
+                    <p class="markdown-paragraph">Consider whether duplicates represent valid data (like multiple transactions from same customer) or need removal.</p>
+                </div>
+
+                <!-- 5. Object Data Values -->
+                <div class="paragraph-section">
+                    <h3>5. Object Data Values</h3>
+                    <p>Analyze text/categorical columns:</p>
+                    
+                    <div class="code-section">
+                        <pre class="code"># Get a summary of the DataFrame
+df.info()
+
+# Count unique values in a categorical column
+df['colname'].value_counts()
+
+#describe table for object data
+df.describe(include="object")</pre>
+                    </div>
+                    <p class="markdown-paragraph">Understand object columns is very important before come to data cleaning step.
+                    Check for inconsistencies, typos, or unexpected values in categorical columns. This is crucial for ensuring data quality
+                    </p>
+                    
+                </div>
+            </div>
+
+            <p >Understanding these fundamental aspects of your dataset will save hours of troubleshooting later. 
+                Always perform these checks before any analysis or modeling. Remember to document your findings - what you learn during exploration will inform every subsequent step in your data workflow.</p>
+        </div>
+    </main>
+</body>
+</html>
