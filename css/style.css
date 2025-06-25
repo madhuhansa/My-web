@@ -226,6 +226,24 @@ body {
     }
 }
 
+/* Title section for all_________________________________________________________*/
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: #2c3e50;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: #3498db;
+    margin: 10px auto;
+    border-radius: 2px;
+}
 
 
 
@@ -235,12 +253,6 @@ body {
     background: #ecf0f1;
 }
 
-.education h2 {
-    text-align: center;
-    margin-bottom: 40px;
-    font-size: 2.6rem;
-    color: #333;
-}
 
 .education-container {
     max-width: 1200px;
@@ -319,24 +331,6 @@ body {
     font-size: 0.9rem;
 }
 
-/* Title section for all_________________________________________________________*/
-.section-title {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
-    color: #2c3e50;
-    position: relative;
-}
-
-.section-title::after {
-    content: '';
-    display: block;
-    width: 80px;
-    height: 4px;
-    background: #3498db;
-    margin: 10px auto;
-    border-radius: 2px;
-}
 
 
 /*  Core Expertise Styles and Skills Section Styles__________________________________________________________________________________  */
@@ -653,40 +647,88 @@ body {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .about-content {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    .about-content img {
-        margin-right: 0;
-        margin-bottom: 2rem;
-    }
-    
     .hero{
         padding: 0 5% 0 5%;
+        min-height: 80vh;
     }
-    .hero h1 {
+    .hero-image {
+        width: 100%;
+        margin: -10% 0% 0 0 ;
+    }
+    .wave {
         font-size: 2rem;
     }
 
-    .hero-image {
-        width: 100%;
-        margin: 0 0% 0 0 ;
-        flex: 1;
-        position: relative;
-        animation: fadeIn 1.5s ease;
-   
+    .hero h1 {
+        font-size: 1.4rem;
     }
+    .hero-subtitle {
+        font-size: 0.7rem;
+    }
+    .hero p{
+        font-size: 0.7rem;
+    }
+    /*For all titles__________*/
+    .section-title {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    /* Education Section__________________________________________________________________________________  */
+    .education {
+        padding: 30px 40px;
+    }
+    .education-item{
+        padding: 10px 10px ;
+    }
+
+    .education-row {
+        gap: 20px;
+    }
+
+    .education-logo {
+        width: 30px;
+        height: 30px;
+        margin-right: 15px;
+    }
+
+    .education-header h3 {
+        font-size: 1rem;
+    }
+
+    .education .degree {
+        margin: 0px 0;
+        font-size: 0.8rem;
+    }
+
+    .education .date {
+        font-size: 0.8rem;
+    }
+    .education .skills {
+        padding: 2%;
+    }
+    .education .skills h4 {
+        margin-bottom: 5px;
+        font-size: 0.8rem;
+    }
+
+    .education .skills li {
+        background: #e0e0e0;
+        color: #333;
+        padding: 2px 12px;
+        margin: 0 5px 5px 5px;
+        border-radius: 20px;
+        font-size: 0.7rem;
+    }
+
+
+
 
     /* slill 1 */
     .expertise-container {
         grid-template-columns: 1fr;
     }
     
-    .section-title {
-        font-size: 2rem;
-    }
+    
     
     .expertise-item {
         flex-direction: column;
@@ -742,14 +784,7 @@ body {
     .greeting {
         justify-content: center;
     }
-    
-    .hero h1 {
-        font-size: 2.5rem;
-    }
-    
-    .hero-subtitle {
-        font-size: 1.2rem;
-    }
+
     
     .hero-cta {
         justify-content: center;
@@ -768,6 +803,13 @@ body {
 
 
 @media (max-width: 480px) {
+    .hero-image {
+        width: 100%;
+        margin: -20% 0% 0 0 ;
+    }
+    .education {
+        padding: 20px 40px;
+    }
     .expertise {
         padding: 3rem 1rem;
     }
